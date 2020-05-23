@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="" />
+		<title>type master</title>
+	</head>
+	<body>
+		<h1>Type master</h1>
+
+		<div style="width: 100%;">
+			<h3>How fast can you type "Hello World"?</h3>
+			<form id="customForm" method="post" action="/api/type_result">
+				<input id="fInput" type="text" name="input" />
+
+				<input id="fSubmit" type="submit" value="Submit" />
+
+				<input name="time" name="time" id="fTimeOutput" id value="0" />
+
+				<span id="status">Awaiting input</span>
+
+				<input id="resetElem" type="button" name="fReset" value="Reset" />
+			</form>
+		</div>
+	</body>
+
+	<script>
+		const input = document.querySelector('#fInput');
+		const timeElem = document.querySelector('#fTimeOutput');
+		const submit = document.querySelector('#fSubmit');
+		const resetElem = document.querySelector('#resetElem');
+		const status = document.querySelector('#status');
+
+		let time = 0;
+		let ticking = null;
+		let started = false;
+
+		timeElem.innerHTML = time;
+
+		const counter = () => {
+			time += 0.1;
+
+			//console.log('tick', time);
+			timeElem.value = time;
+		};
+
+		start = (e) => {
+			started = true;
+			console.log('started');
+			status.innerHTML = 'Timer started!';
+			ticking = setInterval(() => counter(), 100);
+		};
+
+		reset = () => {
+			console.log('Resetting');
+			clearInterval(ticking);
+			ticking = null;
+			started = false;
+
+			status.innerHTML = 'Awaiting input.';
+			input.value = '';
+			input.focus();
+			time = 0;
+			timeElem.value = time;
+		};
+
+		input.onkeyup = (e) => {
+			if (e.target.value.length === 1 && !started) {
+				start();
+			}
+		};
+
+		resetElem.onclick = (e) => {
+			reset();
+		};
+	</script>
+</html>
