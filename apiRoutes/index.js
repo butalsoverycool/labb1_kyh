@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const apiActions = require('../apiActions');
+const apiActions = require('./actions');
 
 // target action func
 const doAction = (req, res) => {
