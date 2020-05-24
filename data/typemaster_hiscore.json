@@ -1,0 +1,26 @@
+{
+  "HISCORE": [
+    {
+      "typer": "Kiim",
+      "typed": "Hello World",
+      "speed": "2.30",
+      "timestamp": {
+        "date": "2020-5-24",
+        "time": "18:48:11"
+      },
+      "id": "1590338849594",
+      "message": ""
+    },
+    {
+      "typer": "Kiiim",
+      "typed": "Hello World",
+      "speed": "3.40",
+      "timestamp": {
+        "date": "2020-5-24",
+        "time": "18:48:43"
+      },
+      "id": "1590338920135",
+      "message": ""
+    }
+  ]
+}

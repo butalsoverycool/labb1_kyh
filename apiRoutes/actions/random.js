@@ -1,3 +1,4 @@
+// GET RAND NUM 0 - 1023
 const random = (req, res) => {
 	return res
 		.status(200)

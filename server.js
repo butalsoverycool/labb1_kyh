@@ -22,7 +22,7 @@ server.use(
 	})
 );
 
-//server.use(cors());
+server.use(cors());
 
 // server listen
 server.listen(port, () =>
