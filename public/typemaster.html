@@ -12,15 +12,34 @@
 		<div style="width: 100%;">
 			<h3>How fast can you type "Hello World"?</h3>
 			<form id="customForm" method="post" action="/api/type_result">
-				<input id="fInput" type="text" name="input" />
-
-				<input id="fSubmit" type="submit" value="Submit" />
-
-				<input name="time" name="time" id="fTimeOutput" id value="0" />
+				<input
+					id="fName"
+					placeholder="Your name"
+					type="text"
+					name="typer"
+				/>
 
 				<span id="status">Awaiting input</span>
 
+				<input
+					id="fInput"
+					placeholder="Hello World"
+					type="text"
+					name="input"
+				/>
+
+				<input id="fSubmit" type="submit" value="Submit" />
+
+				<input
+					name="speed"
+					value="0"
+					id="fTimeOutput"
+					placeholder="timer"
+				/>
+
 				<input id="resetElem" type="button" name="fReset" value="Reset" />
+
+				<input style="display: none;" id="id" type="text" name="id" />
 			</form>
 		</div>
 	</body>
@@ -31,6 +50,7 @@
 		const submit = document.querySelector('#fSubmit');
 		const resetElem = document.querySelector('#resetElem');
 		const status = document.querySelector('#status');
+		const id = document.querySelector('#id');
 
 		let time = 0;
 		let ticking = null;
@@ -50,6 +70,7 @@
 			console.log('started');
 			status.innerHTML = 'Timer started!';
 			ticking = setInterval(() => counter(), 100);
+			id.value = Date.now();
 		};
 
 		reset = () => {
